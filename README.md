@@ -95,15 +95,15 @@ python src/train_dl.py
 |-------------------|-------------|---------------------------------------------|
 | Ridge Regression  | Linear      | L2 regularisation, GridSearchCV tuning      |
 | Random Forest     | Ensemble    | 300 trees, RandomizedSearchCV tuning        |
-| LSTM              | Deep Learning | 2-layer + BatchNorm + gradient clipping   |
-| GRU               | Deep Learning | 2-layer + BatchNorm + gradient clipping   |
-| CNN-LSTM          | Deep Learning | Conv1D feature extractor + LSTM           |
+| LSTM              | Deep Learning | 2-layer + LayerNorm + recurrent dropout, SEQ=144 (24 h) |
+| GRU               | Deep Learning | 2-layer + BatchNorm + gradient clipping, SEQ=24 (4 h)   |
+| CNN-LSTM          | Deep Learning | Conv1D feature extractor + LSTM, SEQ=24 (4 h) 
 
 All DL models use:
-- Sequence length: 24 steps (4 hours of history)
 - Optimizer: Adam with `clipnorm=1.0`
 - Callbacks: EarlyStopping (patience=15) + ReduceLROnPlateau
 - Random seed: 42 (fully reproducible)
+- LSTM uses 144-step sequences (24 h) to exploit long-range memory; GRU and CNN-LSTM use 24-step sequences (4 h)
 
 ## Results
 
