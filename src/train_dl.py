@@ -1,4 +1,4 @@
-"""train_dl.py — Step 4: Train LSTM, GRU, CNN-LSTM; evaluate and compare all models."""
+"""train_dl.py - Step 4: Train LSTM, GRU, CNN-LSTM; evaluate and compare all models."""
 
 import os
 import sys
@@ -60,7 +60,7 @@ def plot_training_curves(histories):
     for ax, (name, history) in zip(axes, histories.items()):
         ax.plot(history.history["loss"],     label="Train loss")
         ax.plot(history.history["val_loss"], label="Val loss")
-        ax.set_title(f"{name} — Training Curve")
+        ax.set_title(f"{name} - Training Curve")
         ax.set_xlabel("Epoch")
         ax.set_ylabel("MSE Loss")
         ax.legend()
@@ -79,7 +79,7 @@ def plot_dl_pred_vs_actual(pred_pairs):
         ax.set_xlabel("Test index")
         ax.set_ylabel("Energy (Wh)")
         ax.legend()
-    plt.suptitle("DL Models — Predicted vs Actual (first 500 test points)")
+    plt.suptitle("DL Models - Predicted vs Actual (first 500 test points)")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR, "20_dl_pred_vs_actual.png"), dpi=150, bbox_inches="tight")
     plt.show()
@@ -110,7 +110,7 @@ def plot_all_models_comparison(all_metrics):
         for bar in bars:
             ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() * 1.01,
                     f"{bar.get_height():.2f}", ha="center", va="bottom", fontsize=8)
-    plt.suptitle("All Models — Performance Comparison", fontsize=13)
+    plt.suptitle("All Models - Performance Comparison", fontsize=13)
     plt.tight_layout()
     plt.savefig(os.path.join(PLOT_DIR, "22_all_models_comparison.png"), dpi=150, bbox_inches="tight")
     plt.show()
@@ -118,7 +118,7 @@ def plot_all_models_comparison(all_metrics):
 
 def run():
     print("=" * 50)
-    print("STEP 4 — Deep Learning Model Training")
+    print("STEP 4 - Deep Learning Model Training")
     print("=" * 50)
     os.makedirs(PLOT_DIR, exist_ok=True)
 
@@ -154,7 +154,7 @@ def run():
         rf_metrics = evaluate(y_test_2d, rf_model.predict(X_test_2d), "Random Forest")
         all_metrics = [lr_metrics, rf_metrics, lstm_metrics, gru_metrics, cnn_lstm_metrics]
     except FileNotFoundError:
-        print("[warn]  Baseline models not found — skipping combined comparison.")
+        print("[warn]  Baseline models not found - skipping combined comparison.")
         all_metrics = [lstm_metrics, gru_metrics, cnn_lstm_metrics]
 
     print("\n" + "=" * 50)
