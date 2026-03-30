@@ -81,7 +81,7 @@ def plot_residuals(y_test, lr_pred, rf_pred):
         ax.set_xlabel("Fitted values (Wh)")
         ax.set_ylabel("Residuals (Wh)")
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "16_residuals.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "17_residuals.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
 
@@ -97,7 +97,7 @@ def plot_metrics_comparison(lr_metrics, rf_metrics):
     ax.set_ylabel("Metric Value")
     ax.legend()
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "17_metrics_comparison.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "18_metrics_comparison.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
 
@@ -124,18 +124,18 @@ def run():
     print("=" * 50)
     print(pd.DataFrame([lr_metrics, rf_metrics]).set_index("Model").round(4).to_string())
 
-    plot_pred_vs_actual(y_test, lr_pred, "Linear Regression", "14_lr_pred_vs_actual.png")
-    plot_pred_vs_actual(y_test, rf_pred, "Random Forest",     "15_rf_pred_vs_actual.png")
+    plot_pred_vs_actual(y_test, lr_pred, "Linear Regression", "19_lr_pred_vs_actual.png")
+    plot_pred_vs_actual(y_test, rf_pred, "Random Forest",     "20_rf_pred_vs_actual.png")
     plot_residuals(y_test, lr_pred, rf_pred)
     plot_metrics_comparison(lr_metrics, rf_metrics)
 
     feat_imp = pd.Series(rf_model.feature_importances_,
                          index=feature_cols).sort_values(ascending=False).head(15)
     feat_imp.plot(kind="bar", figsize=(13, 4), color="steelblue",
-                  title="Random Forest — Top 15 Feature Importances")
+                  title="Random Forest - Top 15 Feature Importances")
     plt.ylabel("Importance")
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "18_rf_feature_importance.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "21_rf_feature_importance.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
     os.makedirs(MODELS_DIR, exist_ok=True)
