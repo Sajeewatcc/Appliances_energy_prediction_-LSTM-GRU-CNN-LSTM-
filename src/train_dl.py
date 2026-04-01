@@ -65,7 +65,7 @@ def plot_training_curves(histories):
         ax.set_ylabel("MSE Loss")
         ax.legend()
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "22_training_curves.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "21_training_curves.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
 
@@ -81,7 +81,7 @@ def plot_dl_pred_vs_actual(pred_pairs):
         ax.legend()
     plt.suptitle("DL Models - Predicted vs Actual (first 500 test points)")
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "23_dl_pred_vs_actual.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "22_dl_pred_vs_actual.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
 
@@ -90,11 +90,11 @@ def plot_dl_residuals(pred_pairs):
     for ax, (name, (y_true, y_pred)) in zip(axes, pred_pairs.items()):
         ax.scatter(y_pred, y_true - y_pred, alpha=0.3, s=5, color="steelblue")
         ax.axhline(0, color="red", linestyle="--", linewidth=1)
-        ax.set_title(f"{name} — Residuals")
+        ax.set_title(f"{name} - Residuals")
         ax.set_xlabel("Fitted values")
         ax.set_ylabel("Residuals")
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "24_dl_residuals.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "23_dl_residuals.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
 
@@ -112,7 +112,7 @@ def plot_all_models_comparison(all_metrics):
                     f"{bar.get_height():.2f}", ha="center", va="bottom", fontsize=8)
     plt.suptitle("All Models - Performance Comparison", fontsize=13)
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "25_all_models_comparison.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(PLOT_DIR, "24_all_models_comparison.png"), dpi=150, bbox_inches="tight")
     plt.show()
 
 
