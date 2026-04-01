@@ -24,7 +24,7 @@ PROC_DIR      = os.path.join(ROOT_DIR, "data", "processed")
 MODELS_DIR    = os.path.join(ROOT_DIR, "models")
 PLOT_DIR      = os.path.join(ROOT_DIR, "Plots and Visualizations")
 TARGET        = "Appliances"
-LSTM_SEQ_LEN  = 144  # 24 hours — plays to LSTM's long-range memory advantage
+LSTM_SEQ_LEN  = 144  # 24 hours - plays to LSTM's long-range memory advantage
 
 LSTM_PARAMS     = {"units": 128, "dropout": 0.2, "lr": 0.001}
 GRU_PARAMS      = {"units": 64,  "dropout": 0.2, "lr": 0.001}
