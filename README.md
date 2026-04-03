@@ -1,4 +1,4 @@
-# Appliance Energy Prediction - Deep Learning Internship Project
+# Appliance Energy Prediction - Deep Learning Project
 
 Multivariate time-series forecasting of household appliance energy consumption using the [Energy Prediction Dataset](https://drive.google.com/file/d/1ZkR70gAxSUoU5b1KqvTW4bdFM0il-nZz/view?usp=sharing).
 
